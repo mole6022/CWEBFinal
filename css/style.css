@@ -1,0 +1,156 @@
+/******************************
+	General site configuration
+******************************/
+@font-face {
+	/* Collected from DaFont.com */
+	
+	font-style: normal;
+	font-weight: normal;
+	font-family: 'Halion';
+	src: url('../fonts/halion-webfont.woff2') format('woff2'),
+		url('../fonts/halion-webfont.woff') format('woff'),
+		url('../fonts/halion-webfont.ttf') format('ttf');
+}
+
+html {
+	font-family: serif;
+	color: black;
+}
+
+body {
+	background-color: #333;
+	background-image: url('../img/bg.png');
+	font-family: serif;
+	padding: 25px 0;
+}
+
+h2, h3 {
+	font-family: Halion, serif;
+}
+
+h1 {
+	font-family: Halion, serif;
+	font-size: 42px;
+}
+
+.panel {
+	background-color: #f5f5f5;
+	border-radius: 12px;
+}
+
+.panel-heading { 
+	border-top-left-radius: 12px;
+	border-top-right-radius: 12px;
+}
+
+
+.panel-heading {
+	border: 0;
+	background-color: transparent;
+}
+
+.form-control {
+	border-color: #333; 
+}
+
+.btn {
+	/*float:right;*/
+	border-color: #333;
+}
+
+.sitelogo {
+	display:flex;
+	align-items: center;
+}
+
+.sitelogo img {
+	
+}
+
+.sitelogo h1 {
+	color: black;
+	height: 100%;
+	margin-left: 15px;
+}
+
+hr {
+	border-color: black;
+}
+
+.glyphicon.spinning {
+    animation: spin 1s infinite linear;
+    -webkit-animation: spin2 1s infinite linear;
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg); }
+    to { transform: scale(1) rotate(360deg); }
+}
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+
+/******************************
+	Configuration for log-in
+******************************/
+#login {
+	margin-top: 50px;
+	max-width: 800px;
+	box-shadow: 5px 5px 5px black;
+}
+
+#logologin {
+	max-width: 800px;
+}
+
+/***********************************
+	Configuration for index views
+***********************************/
+#index {
+	margin-top: 50px;
+	box-shadow: 5px 5px 5px black;
+}
+
+#index .panel-heading {
+	padding: 0px;
+}
+
+#index .panel-heading .navbar {
+	border-top-left-radius: 12px;
+	border-top-right-radius: 12px;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+#index .navbar-left, #index .navbar-left li:first-child, #index .navbar-left li:first-child a {
+	border-top-left-radius: inherit;
+}
+
+#index .navbar-right, #index .navbar-right li:last-child, #index .navbar-right li:last-child a {
+	border-top-right-radius: inherit;
+}
+
+#index .panel-heading .navbar-right {
+	margin-right: 0;
+}
+
+#index .panel-heading .navbar li:hover {
+	background-color: #e7e7e7;
+}
+
+/***********************************
+	Configuration for navigation
+***********************************/
+.dropdown:hover .dropdown-menu {
+	display:block;
+}
+
+.pagination:hover {
+	cursor:pointer;
+}
+
+.iconMenu {
+	cursor:pointer;
+}

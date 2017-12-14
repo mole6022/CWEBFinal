@@ -1,0 +1,353 @@
+/*
+sheet.css
+Used for viewSheet.php
+Contains sheet formatting
+*/
+/*********************************
+	Supercontainer formats
+*********************************/
+body {
+	background-image: none;
+	background-color: #999;
+	padding: 0px;
+}
+
+input {
+	text-align: center;
+	width:100%;
+}
+
+.pageContainer {
+	background-color: white;
+	min-width: 1024px;
+	max-width:1280px;
+	padding:25px;
+	margin-top: 72px; /*25px default + 52px for top menu*/
+	margin-bottom: 25px;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid black;
+	box-shadow: 5px 5px 5px #333;
+	-webkit-box-shadow: 5px 5px 5px #333;
+	-moz-box-shadow: 5px 5px 5px #333;
+}
+
+.containerDefault {
+	width:100%;
+	display: grid;
+	padding: 0;
+	margin: 0 0 20px 0;
+	/*border: 1px solid red;*/
+}
+
+.interior {
+	margin-bottom: 0px;
+	padding: 0px;
+}
+
+.interior input {
+	height: 26px;
+}
+
+.containerInline {
+	display:inline-grid;
+}
+
+.flexRow {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+}
+
+.containerHeader {
+	box-sizing: border-box;
+	width:100%;
+	padding: 5px 10px;
+	background-color:black;
+	color:white;
+	font-size:1.2em;
+	font-variant:small-caps;
+}
+
+.containerBody {
+	padding: 10px;
+	border: 1px solid black;
+}
+
+/******************************************
+	Overrides for particular containers
+******************************************/
+#attributes {
+	grid-template-columns: 
+		[stats] 1fr
+		[data] 1fr
+		[img] 250px [end];
+	grid-template-rows:
+		repeat(8, 52px);
+	grid-gap: 10px;
+	grid-template-areas: 
+		"stats hp hp"
+		"stats ac ac"
+		"stats init portrait"
+		"stats init portrait"
+		"saves saves portrait"
+		"saves saves portrait"
+		"melee melee portrait"
+		"range range portrait"
+}
+#statBlock {
+	width: 100%;
+	grid-template-columns: [start] repeat(1fr, 5) [end];
+	grid-template-rows: repeat(1fr, 7);
+	grid-area: stats;
+}
+
+#hitPoints {
+	grid-area: hp;
+	grid-template: repeat(2, 1fr) / 
+		[start] 100px 5px 120px repeat(4, 15px 1fr) [end];
+	align-items: end;
+}
+
+#armorClass {
+	grid-area: ac;
+	grid-template: 1fr 2fr 1fr / 
+		[start] 100px 5px 120px repeat(8, 15px 1fr) [end];
+	align-items: start;
+	text-align: center;
+}
+
+#hitPoints span, #armorClass span, #initGroup span {
+	align-self: center;
+}
+
+#touchInitSpeed {
+	grid-area: init;
+	display: grid;
+	grid-template: 1fr 1fr 1fr 1fr / 
+		[start] 1fr [half] 1fr [end];
+	grid-auto-flow: row;
+	grid-gap: 5px 10px;
+}
+
+#saves {
+	grid-area: saves;
+	display: grid;
+	grid-auto-flow: column;
+	grid-template-rows: 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr repeat(5, 15px 1fr);
+	grid-gap: 5px 5px;
+	align-items: end;
+}
+
+#portrait { 
+	grid-area: portrait;
+	border: 1px solid #666;
+	color: #666;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+#portrait:hover {
+	cursor: pointer;
+}
+
+#portrait img {
+	display: block;
+	height: 100%;
+	width: 100%;
+	object-fit: contain;
+}
+
+#babMelee {
+	grid-area: melee;
+	display: grid;
+	grid-auto-flow: column;
+	grid-template-rows: 1fr 1fr;
+	grid-template-columns: 1fr 1fr repeat(5, 15px 1fr);
+	grid-gap: 5px 5px;
+	align-items: end;
+}
+
+#babRange {
+	grid-area: range;
+	display: grid;
+	grid-auto-flow: column;
+	grid-template-rows: 1fr 1fr;
+	grid-template-columns: 1fr 1fr repeat(5, 15px 1fr);
+	grid-gap: 5px 5px;
+	align-items: end;
+}
+
+#feats .containerBody {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-rows: 26px;
+	grid-auto-rows: 26px;
+}
+
+#inventory .containerBody {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 26px;
+	grid-auto-rows: 26px;
+}
+
+#skills .containerBody {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 26px;
+	grid-auto-rows: 26px;
+}
+
+#skills .inputgroup {
+	display: grid;
+	grid-template-columns: 3fr 1fr 25px 1fr 15px 1fr 15px 1fr 15px 1fr;
+	grid-template-rows: 26px;
+}
+
+/********************************
+	Different input group types
+********************************/
+
+/*Input groups for subtitled/supertitled text*/
+.inputGroup {
+	display: inline-block;
+	box-sizing: border-box;
+	padding: 5px;
+}
+
+.interior .inputGroup {
+	padding: 0px;
+}
+
+.inputTableGroup {
+	display: inline-table;
+}
+
+.tableHeader {
+	text-align: center;
+}
+
+.inputTableGroup div {
+	display:table-cell;
+	width: 20%;
+}
+
+.inputTableGroup div.tableLabel {
+	background-color: black;
+}
+
+.inputTableGroup div.tableTemp {
+	background-color: #CCC;
+}
+
+.inputTableGroup label {
+	display:block;
+	padding:0;
+	margin:0;
+	height:26px;
+}
+
+.eighthSpan {
+	flex-basis: 12.5%;
+}
+
+.quarterSpan {
+	flex-basis: 25%;
+}
+
+input.underline {
+	display:block;
+	width: 100%;
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+	border-bottom: 1px solid #333;
+	text-align: left;
+}
+
+.topLabel {
+	/*Item comprises input(s) and a label above */
+	display:flex;
+	flex-direction: column;
+	justify-content: flex-end;
+}
+
+.bottomLabel {
+	/*Item comprises input(s) and a label below */
+	display: flex;
+	flex-direction: column-reverse;
+	justify-content: flex-end;
+}
+
+/* Label under input */
+.labelSubscript {
+	font-size:0.8em;
+	color:#333;
+	padding-left: 0.5em;
+	margin: 0px;
+}
+
+.interior .labelSubscript {
+	padding-left: 0px;
+	text-align: center;
+	vertical-align: bottom;
+}
+
+/*Label beside input */
+.labelBox {
+	color: white;
+	background-color: black;
+	font-weight: bold;
+	text-align: center;
+	height: 100%;
+}
+
+/***************************************
+	Overrides for particular inputs
+***************************************/
+#acTouchGroup, #acFlatGroup {
+	display: grid;
+	grid-template: 1fr / repeat(2,1fr);
+}
+
+#initGroup {
+	grid-column: span 2;
+	display: grid;
+	grid-template: 1fr 1fr / [start] 1fr 1fr repeat(2, 15px 1fr) [end];
+	grid-gap: 5px;
+	text-align: center;
+}
+
+
+#saves div, #babMelee div, #babRange div {
+	height: 100%;
+	text-align:center;
+}
+
+#babMelee .inputGroup, #babRange .inputGroup {
+	grid-row: span 2;
+}
+
+#inventory .inputgroup {
+	display: grid;
+	grid-template-columns: 4fr 1fr 1fr;
+	grid-template-rows: 1fr;
+}
+
+#inventory .inputgroup div, #skills .inputgroup div {
+	padding: 5px;
+}
+
+
+/*****************************
+	Controls for menu items
+*****************************/
+.toggleContainer {
+	float:left;
+	margin-right: 1em;
+}
